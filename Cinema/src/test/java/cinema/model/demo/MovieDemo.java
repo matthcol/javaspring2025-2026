@@ -1,8 +1,12 @@
 package cinema.model.demo;
 
+import cinema.model.ColorEnum;
 import cinema.model.Movie;
 import cinema.model.Person;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
+import org.junit.jupiter.params.provider.NullSource;
 
 import java.text.MessageFormat;
 import java.time.LocalDate;
@@ -101,6 +105,30 @@ class MovieDemo {
             // getYear, format : methodes d'instance
             // ofPattern : methode de classe
 
+    }
+
+    @Test
+    void demoMovieColor(){
+        var movie = Movie.builder()
+                .title("The Terminator")
+                .year(1984)
+                .color(ColorEnum.COLOR)
+                .build();
+        System.out.println(movie);
+        System.out.println(movie.getColor());
+    }
+
+    @ParameterizedTest
+    @EnumSource(ColorEnum.class) // NB: JUnit peut le deviner le type tt seul
+    @NullSource
+    void demoMovieColor2(ColorEnum color){
+        var movie = Movie.builder()
+                .title("The Terminator")
+                .year(1984)
+                .color(color)
+                .build();
+        System.out.println(movie);
+        System.out.println("Color mode: " +  movie.getColor());
     }
 
 }

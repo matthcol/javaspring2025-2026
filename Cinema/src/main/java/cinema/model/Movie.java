@@ -17,6 +17,7 @@ public class Movie {
     private int year;
     private Integer duration;
     private String synopsis;
+    private ColorEnum color;
 
     @Singular
     // @Builder.Default // si pas @Singular

@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 // default: extends Object
-public class Person {
+public class Person
+    //        implements Comparable<Person>  // ordre naturel
+{
 
     // fields / attributes / properties
 
@@ -55,6 +57,13 @@ public class Person {
         sb.append('}');
         return sb.toString();
     }
+
+
+    // ordre naturel
+//    @Override
+//    public int compareTo(Person other) {
+//        return this.getName().compareTo(other.getName());
+//    }
 
 //    @Override
 //    public boolean equals(Object o) {
